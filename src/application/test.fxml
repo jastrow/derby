@@ -7,8 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="932.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl_Spiel">
    <children>
       <MenuBar>
          <menus>
@@ -29,25 +28,25 @@
             </Menu>
          </menus>
       </MenuBar>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox layoutX="6.0" layoutY="29.0" prefHeight="297.0" prefWidth="653.0">
          <children>
             <Label contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="UMeLs Kentucky Derby" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold" size="79.0" />
+                  <Font name="System Bold" size="52.0" />
                </font>
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <VBox maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0">
+                  <VBox>
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </VBox>
-                  <VBox maxHeight="50.0" maxWidth="900.0" minHeight="50.0" minWidth="900.0" prefHeight="50.0" prefWidth="900.0">
+                  <VBox>
                      <children>
                         <ProgressBar prefHeight="18.0" prefWidth="252.0" progress="0.0" />
                         <ProgressBar prefWidth="200.0" progress="0.0" />
@@ -55,16 +54,13 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-               </children>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </HBox>
          </children>
       </VBox>
+      <HBox layoutX="40.0" layoutY="473.0">
+         <children>
+            <Button fx:id="Spieler_1" mnemonicParsing="false" onAction="#bewegePferdSpieler1" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
