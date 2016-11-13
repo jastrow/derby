@@ -20,7 +20,7 @@ public class MainController extends Application {
 		this.rennbahn.setView(this.viewHaupt);
 		
 		// in View verschieben 
-	 this.rennbahn.startGame();
+	 //this.rennbahn.startGame();
 
 		
 		// TESTING START

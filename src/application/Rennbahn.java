@@ -70,8 +70,8 @@ public class Rennbahn {
 	 */
 	public void update() {
 		for(int i = 0; i < this.anzahlStrecken; i++) {
-			viewHaupt.bewegePferd(i, this.strecken.get(i).getPosition());
-			//System.out.print("<"+i+"> "+this.strecken.get(i).getPosition()+ " ");
+			// viewHaupt.bewegePferd(i, this.strecken.get(i).getPosition());
+			System.out.print("<"+i+"> "+this.strecken.get(i).getPosition()+ " ");
 		}
 		System.out.println("");
 	}
