@@ -14,6 +14,7 @@ public class Strecke {
 	}
 	
 	public void start() {
+		this.position = 0;
 		this.pferd.start();
 	}
 	public void stop() {

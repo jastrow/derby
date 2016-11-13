@@ -40,7 +40,6 @@ public class Rennbahn {
 	public void startGame() {
 		this.letzterZieleinlauf = 0;
 		this.reihenfolge.clear();
-		// Todo löschen der position innerhalb der strecken
 		for(int i = 0; i < this.anzahlStrecken; i++) {
 			this.strecken.get(i).start();
 		}
@@ -51,26 +50,28 @@ public class Rennbahn {
 		}
 	}
 	public void winner(int strecke) {
-		//this.stopGame();
-		this.letzterZieleinlauf++;
-		System.out.println("[["+this.letzterZieleinlauf+"]]");
-		this.reihenfolge.add(strecke);
-		//this.strecken.get(strecke).stop();
+		
+		// Wenn die Strecke schon enthalten ist, dann verwerfen (bug)
+		if(!this.reihenfolge.contains(strecke)) {
+			this.letzterZieleinlauf++;
+			
+			System.out.println("Zieleinlauf "+this.letzterZieleinlauf+" Bahn "+strecke);
+			this.reihenfolge.add(strecke);
+			
+			if(this.letzterZieleinlauf >= 12) {
+				for(int j = 0; j < this.anzahlStrecken; j++) {
+					System.out.println(j+"->"+this.reihenfolge.get(j));
+				}
+			}
+		}
 	}
 	/*
-	 * Eine Strecke meldet, dass sich etwas geändert hat, 
-	 * Rennbahn kann sich aktualisieren.
+	 * Eine Strecke meldet, dass sich etwas geändert hat.
 	 */
 	public void update() {
 		for(int i = 0; i < this.anzahlStrecken; i++) {
 			System.out.print("<"+i+"> "+this.strecken.get(i).getPosition()+ " ");
 		}
 		System.out.println("");
-		// Prüfen ob alle im Ziel -> Ausgabe der Zieleinläufe
-		if(this.letzterZieleinlauf == this.anzahlStrecken) {
-			for(int j = 0; j < this.anzahlStrecken; j++) {
-				System.out.println(j+"->"+this.reihenfolge.get(j));
-			}
-		}
 	}
 }

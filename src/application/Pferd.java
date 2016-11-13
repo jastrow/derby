@@ -6,7 +6,7 @@ public class Pferd implements Runnable {
 	   
 	private Integer ballruecklauf = 2000; // MilliSekunden
 	private Integer ballwurfzeit = 3; // maximale Zeit bis Ball geworfen wird
-	private int[] wahrscheinlichkeit = { 10, 40, 100 }; // Punkte 1,2,3 in Prozent
+	private int[] wahrscheinlichkeit = { 15, 50, 100 }; // Punkte 1,2,3 in Prozent
 	private int[] punkte = { 3,2,1 };
 	private Boolean laufen = false;
 	private Strecke strecke;
