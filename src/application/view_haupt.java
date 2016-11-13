@@ -1,5 +1,7 @@
 package application;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -37,8 +39,8 @@ public class view_haupt {
 		for(int i = 1; i <= img_Pferd.length; i++) {
 			String Dateiname = "reiter_" + i + ".jpg";
 			img_Pferd[i-1] = new ImageView(getClass().getResource(Dateiname).toExternalForm());
-			img_Pferd[i-1].setFitHeight(32);
-			img_Pferd[i-1].setFitWidth(32);
+			img_Pferd[i-1].setFitHeight(20);
+			img_Pferd[i-1].setFitWidth(20);
 			verbo_linkeBox.getChildren().add(img_Pferd[i-1]);
 		};
 
@@ -56,10 +58,19 @@ public class view_haupt {
 		
 		HBox horbo_untereBox = new HBox();
 		
+		bttn_Start = new Button("Start");
+		bttn_Start.setOnAction(new EventHandler<ActionEvent>(){
+			
+			public void handle(ActionEvent arg0){
+				rennbahn.startGame();
+			}
+		});
 		
+		horbo_untereBox.getChildren().add(bttn_Start);
 		
 		verbo_aeussereBox.getChildren().add(imgv_Titelbild);
 		verbo_aeussereBox.getChildren().add(horbo_obereBox);
+		verbo_aeussereBox.getChildren().add(horbo_untereBox);
 		
 		this.wurzel.getChildren().add(verbo_aeussereBox);
 		this.scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		
