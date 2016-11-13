@@ -3,7 +3,6 @@ package application;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -11,15 +10,22 @@ public class MainController extends Application {
 
 	private Stage primaryStage;
 	private Scene scene;
+	private Rennbahn rennbahn = new Rennbahn();
 	
 	public void launcher() {
 
 		
-		// Testing
+		this.rennbahn.startGame();
+		
+		// TESTING START
+		System.out.println( this.rennbahn.getAnzahlStrecken() );
+		/*
 		Observer observer = new Observer();
 		observer.addSubscriber(this, "test");
 		Object test = new Object();
 		observer.trigger("test", test);
+		*/
+		// TESTING END
 		
 		
 		System.out.println("launcher method");
