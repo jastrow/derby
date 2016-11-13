@@ -20,7 +20,7 @@ public class MainController extends Application {
 		this.rennbahn.setView(this.viewHaupt);
 		
 		// in View verschieben 
-		this.rennbahn.startGame();
+		//  this.rennbahn.startGame();
 
 		
 		// TESTING START
@@ -43,7 +43,7 @@ public class MainController extends Application {
 	public Scene getScene() {
 		if(! (this.scene instanceof Scene) ) {
 			// durch view Objekt ersetzen
-			this.scene = this.viewHaupt.makeStandardScene();
+			this.scene = this.viewHaupt.erstelleScene();
 		}
 		return this.scene;
 	}
