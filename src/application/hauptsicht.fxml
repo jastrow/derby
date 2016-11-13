@@ -6,15 +6,14 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ctrl_Spiel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ctrl_Spiel">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="UMeLs Kentucky Derby">
-         <font>
-            <Font size="52.0" />
-         </font>
-      </Label>
-      <HBox layoutX="14.0" layoutY="100.0" prefHeight="52.0" prefWidth="577.0">
+      <ImageView fitHeight="86.0" fitWidth="577.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@KentuckyDerby.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="14.0" layoutY="109.0" prefHeight="52.0" prefWidth="577.0">
          <children>
             <VBox prefHeight="52.0" prefWidth="36.0">
                <children>
@@ -40,8 +39,8 @@
       </HBox>
       <HBox layoutX="14.0" layoutY="200.0" prefHeight="100.0" prefWidth="577.0">
          <children>
-            <Button fx:id="Spieler_1" mnemonicParsing="false" onAction="#bewegePferdSpieler1" text="Spieler 1" />
-            <Button mnemonicParsing="false" text="Spieler 2" />
+            <Button fx:id="Spieler_1" mnemonicParsing="false" onAction="#bewegePferdSpieler1" text="Würfeln Spieler 1" />
+            <Button mnemonicParsing="false" text="Würfeln Spieler 2" />
          </children>
       </HBox>
    </children>
