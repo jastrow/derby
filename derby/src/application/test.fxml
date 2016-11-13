@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ctrl_Spiel">
+   <children>
+      <HBox layoutX="219.0" layoutY="15.0" prefHeight="78.0" prefWidth="381.0">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="357.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ESA/ESA_2/KentuckyDerby.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="100.0" prefHeight="52.0" prefWidth="577.0">
+         <children>
+            <VBox prefHeight="52.0" prefWidth="36.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@reiter_rot.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@reiter_blau.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="31.0" prefWidth="538.0">
+               <children>
+                  <ProgressBar prefHeight="20.0" prefWidth="536.0" progress="0.0" style="-fx-border-color: #ff0000;">
+                     <effect>
+                        <Reflection />
+                     </effect></ProgressBar>
+                  <ProgressBar prefHeight="20.0" prefWidth="536.0" progress="0.0" style="-fx-border-color: #0000ff;" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="53.0" layoutY="200.0" prefHeight="100.0" prefWidth="538.0">
+         <children>
+            <Button fx:id="Spieler_1" mnemonicParsing="false" onAction="#bewegePferdSpieler1" text="Spieler 1" />
+            <Button mnemonicParsing="false" text="Spieler 2" />
+         </children>
+      </HBox>
+      <HBox layoutX="53.0" layoutY="177.0" prefHeight="20.0" prefWidth="536.0">
+         <children>
+            <Label id="ValueP1" prefHeight="17.0" prefWidth="62.0" styleClass="Value" text="0" textAlignment="RIGHT" />
+            <Label id="ValueP2" prefHeight="17.0" prefWidth="62.0" styleClass="Value" text="0" textAlignment="RIGHT" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
