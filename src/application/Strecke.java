@@ -2,7 +2,7 @@ package application;
 
 public class Strecke {
 	private Pferd pferd;
-	private Integer laenge = 12;
+	private Integer laenge = 27;
 	private Integer position = 0;
 	private Integer streckennummer;
 	private Rennbahn rennbahn;
