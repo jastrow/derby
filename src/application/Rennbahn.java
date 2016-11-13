@@ -8,9 +8,14 @@ public class Rennbahn {
 	private List<Strecke> strecken = new ArrayList<Strecke>();
 	private List<Integer> reihenfolge = new ArrayList<Integer>();
 	private Integer letzterZieleinlauf = 0;
+	private view_haupt viewHaupt;
 	
 	public Rennbahn() {
 		this.buildStrecken();
+	}
+	
+	public void setView(view_haupt viewHaupt) {
+		this.viewHaupt = viewHaupt;
 	}
 	
 	public Integer getAnzahlStrecken() {

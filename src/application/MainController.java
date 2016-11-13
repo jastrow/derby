@@ -10,12 +10,18 @@ public class MainController extends Application {
 
 	private Stage primaryStage;
 	private Scene scene;
+	private view_haupt viewHaupt = new view_haupt();
+	// in View verschieben und Konstruktor this von View mitgeben
 	private Rennbahn rennbahn = new Rennbahn();
 	
 	public void launcher() {
 
+		this.viewHaupt.setRennbahn(this.rennbahn);
+		this.rennbahn.setView(this.viewHaupt);
 		
+		// in View verschieben 
 		this.rennbahn.startGame();
+
 		
 		// TESTING START
 		System.out.println( this.rennbahn.getAnzahlStrecken() );
@@ -36,20 +42,10 @@ public class MainController extends Application {
 	}
 	public Scene getScene() {
 		if(! (this.scene instanceof Scene) ) {
-			this.scene = this.makeStandardScene();
+			// durch view Objekt ersetzen
+			this.scene = this.viewHaupt.makeStandardScene();
 		}
 		return this.scene;
-	}
-	public Scene makeStandardScene() {
-		Button btn = new Button();
-		btn.setText("Start");
-	 
-		StackPane root = new StackPane();
-		root.getChildren().add(btn);
-		
-		Scene scene = new Scene(root,400,400);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		
-		return scene;
 	}
 	
 	
