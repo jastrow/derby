@@ -50,6 +50,7 @@ public class view_haupt {
 			progr_Pferd[i-1] = new ProgressBar();
 			progr_Pferd[i-1].setMaxWidth(600);
 			progr_Pferd[i-1].setMinWidth(600);
+			progr_Pferd[i-1].setProgress(0);
 			verbo_rechteBox.getChildren().add(progr_Pferd[i-1]);
 		};
 		
@@ -77,4 +78,8 @@ public class view_haupt {
 		return this.scene;
 	}
 		
+	public void bewegePferd(int Pferd, double Fortschritt) {
+			progr_Pferd[Pferd].setProgress(Fortschritt);
+		}
+	
 }
