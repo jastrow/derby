@@ -29,25 +29,19 @@ public class GameScene {
 	/**
 	 * Konstruktor
 	 */
-	public GameScene() {
+	public GameScene(Rennbahn rennbahn) {
+		this.rennbahn = rennbahn;
 		this.wurzel.setAlignment(Pos.CENTER);
 		this.scene = new Scene(this.wurzel,700,700);
+		this.erstelleScene();
 	}
 	
-	/**
-	 * Hilfsfunktion um Rennbahn mit GUI bekannt zu machen
-	 * @param rennbahn
-	 */
-	public void setRennbahn(Rennbahn rennbahn) {
-		this.rennbahn = rennbahn;
-		System.out.println("rennbahn set "+this.rennbahn);
-	}
 	
 	/**
 	 * Funktion zum erstellen der Szene mit ihren Elementen
 	 * @return komplette Szene mit allen Elementen
 	 */
-	private Scene erstelleScene() {	
+	private void erstelleScene() {	
 		
 		//Äußere VertikalBox zur Aufnahme aller weiteren Elemente
 		VBox verboAeussereBox = new VBox();
@@ -127,7 +121,7 @@ public class GameScene {
 		//Szene Formatierungs CSS  zuweisen 
 		this.scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		
 		//fertige Szene zurückgeben
-		return this.scene;
+		//return this.scene;
 	}
 	
 	/**
@@ -135,9 +129,6 @@ public class GameScene {
 	 * @return komplette Szene mit allen Elementen
 	 */
 	public Scene getScene() {
-		if(this.scene == null) {
-			this.scene = this.erstelleScene();
-		}
 		return this.scene;
 	}
 	

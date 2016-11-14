@@ -12,9 +12,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 
-		this.gameScene = new GameScene();
 		this.rennbahn = new Rennbahn();
-		this.gameScene.setRennbahn(this.rennbahn);
+		this.gameScene = new GameScene(this.rennbahn);
 		this.rennbahn.setView(this.gameScene);
 
 		try {
