@@ -1,9 +1,32 @@
 package application;
 
-public class Main {
-	public static void main(String[] args) {
-		MainController controller = new MainController();
-		//System.out.print("main started");
-		//controller.launcher();
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+	private Stage primaryStage;
+	private GameScene gameScene;
+	private Rennbahn rennbahn;
+	
+	public void start(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+
+		this.gameScene = new GameScene();
+		this.rennbahn = new Rennbahn();
+		this.gameScene.setRennbahn(this.rennbahn);
+		this.rennbahn.setView(this.gameScene);
+
+		try {
+			this.primaryStage.setScene(this.gameScene.getScene());
+			this.primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}	
+	
 	}
+	public static void main(String[] args) {
+		launch(args);
+	}	
+
 }
