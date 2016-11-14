@@ -71,7 +71,7 @@ public class Rennbahn {
 	public void update() {
 		for(int i = 0; i < this.anzahlStrecken; i++) {
 			// double hilf = 27 / 100 * this.strecken.get(i).getPosition();
-			// viewHaupt.bewegePferd(i, hilf);
+			// gameScene.bewegePferd(i, hilf);
 			System.out.print("<"+i+"> "+this.strecken.get(i).getPosition()+ " ");
 		}
 		System.out.println("");
