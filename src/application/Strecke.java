@@ -22,14 +22,15 @@ public class Strecke {
 	}
 
 	public void report(int laufweite) {
+		this.position += laufweite;
+
 		if(this.position >= this.laenge) {
 			this.position = this.laenge;
 			this.stop();
 			this.rennbahn.winner(this.streckennummer);
-		} else {
-			this.position += laufweite;
-			this.rennbahn.update();
 		}
+		
+		this.rennbahn.update(this.streckennummer, this.position);
 	}
 	
 	public Integer getPosition() {

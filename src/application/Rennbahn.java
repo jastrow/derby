@@ -68,12 +68,9 @@ public class Rennbahn {
 	/*
 	 * Eine Strecke meldet, dass sich etwas geändert hat.
 	 */
-	public void update() {
-		for(int i = 0; i < this.anzahlStrecken; i++) {
-			// double hilf = 27 / 100 * this.strecken.get(i).getPosition();
-			// gameScene.bewegePferd(i, hilf);
-			System.out.print("<"+i+"> "+this.strecken.get(i).getPosition()+ " ");
-		}
-		System.out.println("");
+	public void update(Integer streckennummer, Integer position) {
+		System.out.println("strecke "+streckennummer+" auf position "+position);
+		// double hilf = 27 / 100 * this.strecken.get(i).getPosition();
+		// gameScene.bewegePferd(i, hilf);
 	}
 }
