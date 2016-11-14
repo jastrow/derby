@@ -24,6 +24,7 @@ public class view_haupt {
 	
 	public void setRennbahn(Rennbahn rennbahn) {
 		this.rennbahn = rennbahn;
+		System.out.println("rennbahn set "+this.rennbahn);
 	}
 	
 	public Scene erstelleScene() {	
@@ -46,12 +47,12 @@ public class view_haupt {
 
 		VBox verbo_rechteBox = new VBox();
 		
-		for(int i = 1; i <= progr_Pferd.length; i++) {
-			progr_Pferd[i-1] = new ProgressBar();
-			progr_Pferd[i-1].setMaxWidth(600);
-			progr_Pferd[i-1].setMinWidth(600);
-			progr_Pferd[i-1].setProgress(0);
-			verbo_rechteBox.getChildren().add(progr_Pferd[i-1]);
+		for(int i = 0; i < progr_Pferd.length; i++) {
+			progr_Pferd[i] = new ProgressBar();
+			progr_Pferd[i].setMaxWidth(600);
+			progr_Pferd[i].setMinWidth(600);
+			progr_Pferd[i].setProgress(0);
+			verbo_rechteBox.getChildren().add(progr_Pferd[i]);
 		};
 		
 		horbo_obereBox.getChildren().add(verbo_linkeBox);
@@ -60,11 +61,18 @@ public class view_haupt {
 		HBox horbo_untereBox = new HBox();
 		
 		bttn_Start = new Button("Start");
+		System.out.println("setUserData "+this.rennbahn);
+		bttn_Start.setUserData(this.rennbahn);
 		bttn_Start.setOnAction(new EventHandler<ActionEvent>(){
-			
-			public void handle(ActionEvent arg0){
-				rennbahn.startGame();
+		    
+		    public void handle(ActionEvent arg0){
+		    	Button obj = (Button) arg0.getSource();
+		    	System.out.println(obj.getUserData());
+		    	Rennbahn rennbahn = (Rennbahn) obj.getUserData();
+		    	rennbahn.startGame();
 			}
+
+		
 		});
 		
 		horbo_untereBox.getChildren().add(bttn_Start);

@@ -16,21 +16,16 @@ public class MainController extends Application {
 	
 	public void launcher() {
 
+		System.out.println("setRennbahn in launcher"+this.rennbahn);
 		this.viewHaupt.setRennbahn(this.rennbahn);
 		this.rennbahn.setView(this.viewHaupt);
 		
 		// in View verschieben 
-	 //this.rennbahn.startGame();
+		//this.rennbahn.startGame();
 
 		
 		// TESTING START
-		System.out.println( this.rennbahn.getAnzahlStrecken() );
-		/*
-		Observer observer = new Observer();
-		observer.addSubscriber(this, "test");
-		Object test = new Object();
-		observer.trigger("test", test);
-		*/
+
 		// TESTING END
 		
 		
