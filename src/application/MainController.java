@@ -1,24 +1,20 @@
 package application;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+public class MainController {
 
-public class MainController extends Application {
-
-	private Stage primaryStage;
-	private Scene scene;
-	private view_haupt viewHaupt = new view_haupt();
-	// in View verschieben und Konstruktor this von View mitgeben
+	//private Stage primaryStage;
+	//private Scene scene;
+	private GameScene gameScene = new GameScene();
 	private Rennbahn rennbahn = new Rennbahn();
 	
-	public void launcher() {
+	//public void launcher() {
+	public MainController() {
 
-		System.out.println("setRennbahn in launcher"+this.rennbahn);
-		this.viewHaupt.setRennbahn(this.rennbahn);
-		this.rennbahn.setView(this.viewHaupt);
+		this.gameScene.setRennbahn(this.rennbahn);
+		this.rennbahn.setView(this.gameScene);
+		
+		MainView mainView = new MainView(this.gameScene);
+		//mainView.start();
 		
 		// in View verschieben 
 		//this.rennbahn.startGame();
@@ -30,8 +26,9 @@ public class MainController extends Application {
 		
 		
 		System.out.println("launcher method");
-		launch(); // JavaFX
+		// launch(); // JavaFX
 	}
+	/*
 	public void setScene(Scene s) {
 		this.scene = s;
 	}
@@ -42,9 +39,10 @@ public class MainController extends Application {
 		}
 		return this.scene;
 	}
-	
-	
+	*/
+	/*	
 	@Override
+
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		try {
@@ -55,9 +53,12 @@ public class MainController extends Application {
 			e.printStackTrace();
 		}
 	}
+	*/
 	
+	/*
 	public void calling(Object obj) {
 		System.out.println( obj.getClass().toString() );
 	}
+	*/
 	
 }

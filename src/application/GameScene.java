@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
 
-public class view_haupt {
+public class GameScene {
 
 	private Scene scene; 
 	private Rennbahn rennbahn;
@@ -17,7 +17,7 @@ public class view_haupt {
 	private ProgressBar[] progr_Pferd = new ProgressBar[12];
 	private ImageView[] img_Pferd = new ImageView[12];
 	
-	public view_haupt() {
+	public GameScene() {
 		this.wurzel.setAlignment(Pos.CENTER);
 		this.scene = new Scene(this.wurzel,700,700);
 	}
@@ -25,6 +25,13 @@ public class view_haupt {
 	public void setRennbahn(Rennbahn rennbahn) {
 		this.rennbahn = rennbahn;
 		System.out.println("rennbahn set "+this.rennbahn);
+	}
+	
+	public Scene getScene() {
+		if(this.scene == null) {
+			this.scene = this.erstelleScene();
+		}
+		return this.scene;
 	}
 	
 	public Scene erstelleScene() {	
@@ -87,7 +94,7 @@ public class view_haupt {
 	}
 		
 	public void bewegePferd(int Pferd, double Fortschritt) {
-			progr_Pferd[Pferd].setProgress(Fortschritt);
-		}
+		progr_Pferd[Pferd].setProgress(Fortschritt);
+	}
 	
 }
