@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rennbahn {
-	private Integer anzahlStrecken = 12;
+	private Integer anzahlStrecken = Configuration.getAnzahlBahnen();
 	private List<Strecke> strecken = new ArrayList<Strecke>();
 	private List<Integer> reihenfolge = new ArrayList<Integer>();
 	private Integer letzterZieleinlauf = 0;
@@ -75,6 +75,7 @@ public class Rennbahn {
 		if(!this.reihenfolge.contains(strecke)) {
 			this.letzterZieleinlauf++;
 			System.out.println("Zieleinlauf "+this.letzterZieleinlauf+" Bahn "+strecke);
+			gameScene.zeigeSieger(strecke, this.letzterZieleinlauf);
 			this.reihenfolge.add(strecke);
 			
 			if(this.letzterZieleinlauf >= this.anzahlStrecken) {
@@ -90,8 +91,8 @@ public class Rennbahn {
 	 */
 	public void update(Integer streckennummer, Integer position) {
 		// System.out.println("strecke "+streckennummer+" auf position "+position);
-		double hilf = (double) position / 27;
-		System.out.println("Rennbahn Pferd: " + streckennummer + " Fortschritt: " + position);
+		double hilf = (double) position / Configuration.getStreckenlaenge();
+		//System.out.println("Rennbahn Pferd: " + streckennummer + " Fortschritt: " + position);
 		gameScene.bewegePferd(streckennummer, hilf);
 	}
 }

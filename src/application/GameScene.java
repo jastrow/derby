@@ -21,9 +21,16 @@ public class GameScene {
 	// Startbutton
 	private Button bttnStart;
 	// Array für die Fortschrittsleisten
-	private ProgressBar[] progrPferd = new ProgressBar[12];
+	private ProgressBar[] progrPferd = new ProgressBar[Configuration.getAnzahlBahnen()];
 	// Array für die Streckenbilder
-	private ImageView[] imgPferd = new ImageView[12];
+	private ImageView[] imgPferd = new ImageView[Configuration.getAnzahlBahnen()];
+	// Array für die Siegesbilder
+	private ImageView[] imgSieg = new ImageView[Configuration.getAnzahlBahnen()];
+	// Siegesbilder
+	private Image ersterPlatz = new Image(getClass().getResource("platzhalter.jpg").toExternalForm());
+	private Image zweiterPlatz = new Image(getClass().getResource("platzhalter.jpg").toExternalForm());
+	private Image dritterPlatz = new Image(getClass().getResource("platzhalter.jpg").toExternalForm());
+	
 	
 	
 	/**
@@ -67,23 +74,43 @@ public class GameScene {
 			//einfügen in Vertikalbox
 			verboLinkeBox.getChildren().add(imgPferd[i-1]);
 		};
+		
+		
 		//Vertikalbox zur Aufnahme der Fortschrittsbalken
-		VBox verboRechteBox = new VBox();
+		VBox verboMittlereBox = new VBox();
 		//Schleife zum erstellen der Fortschrittsbalken
 		for(int i = 0; i < progrPferd.length; i++) {
 			//erstellen des balken
 			progrPferd[i] = new ProgressBar();
 			//setzen von Breite und Höhe
-			progrPferd[i].setMaxWidth(600);
-			progrPferd[i].setMinWidth(600);
+			progrPferd[i].setMaxWidth(500);
+			progrPferd[i].setMinWidth(500);
 			//Fortschrittsbalekn auf 0 setzen
 			progrPferd[i].setProgress(0);
 			//einfügen in Vertikalbox
-			verboRechteBox.getChildren().add(progrPferd[i]);
+			verboMittlereBox.getChildren().add(progrPferd[i]);
 		};
+		
+		
+		
+		//Vertikalbox zur Aufnahme der Streckenbilder
+		VBox verboRechteBox = new VBox();
+		
+		
+		//Schleife zum erstellen der Streckenbilder
+		for(int i = 0; i < imgSieg.length; i++) {
+			//erstellen der Imageview
+			imgSieg[i] = new ImageView();
+			//setzen von breite und höhe des Bildes
+			imgSieg[i].setFitHeight(20);
+			imgSieg[i].setFitWidth(100);
+			//einfügen in Vertikalbox
+			verboRechteBox.getChildren().add(imgSieg[i]);
+		}; 
 		
 		//Vertikalboxen in Horizontalbox einfügen
 		horboObereBox.getChildren().add(verboLinkeBox);
+		horboObereBox.getChildren().add(verboMittlereBox);
 		horboObereBox.getChildren().add(verboRechteBox);
 		
 		//Horizontalbox zur Aufnahme de Startbutton
@@ -131,6 +158,26 @@ public class GameScene {
 	public Scene getScene() {
 		return this.scene;
 	}
+	
+	/**
+	 * Methode zum Anzeigen des Siegers
+	 * @param pferd -> pferd im Ziel
+	 * @param platzierung -> platzierung des Pferdes
+	 */
+	
+	public void zeigeSieger(int pferd, Integer platzierung){
+		
+		switch (platzierung) {
+		case 1: imgSieg[pferd].setImage(ersterPlatz);
+				break;
+		case 2: imgSieg[pferd].setImage(zweiterPlatz);
+				break;
+		case 3: imgSieg[pferd].setImage(dritterPlatz);
+				break;
+		}
+		
+	};
+	
 	
 	/**Hilfsfunktion zum aktualisieren der Fortschrittsbalken
 	 * 
