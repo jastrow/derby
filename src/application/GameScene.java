@@ -138,8 +138,9 @@ public class GameScene {
 	 * @param pferd -> betreffender Balken
 	 * @param fortschritt -> Fortschritt in %
 	 */
-	public void bewegePferd(int pferd, double fortschritt) {
-		progrPferd[pferd].setProgress(progrPferd[pferd].getProgress() + fortschritt);
+	public void bewegePferd(Integer pferd, double fortschritt) {
+		System.out.println("GameScene Pferd: " + pferd + " Fortschritt: " + fortschritt);
+		progrPferd[pferd].setProgress(fortschritt);
 	}
 	
 }

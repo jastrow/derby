@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rennbahn {
-	private Integer anzahlStrecken = 3;
+	private Integer anzahlStrecken = 12;
 	private List<Strecke> strecken = new ArrayList<Strecke>();
 	private List<Integer> reihenfolge = new ArrayList<Integer>();
 	private Integer letzterZieleinlauf = 0;
@@ -89,8 +89,9 @@ public class Rennbahn {
 	 * Eine Strecke meldet, dass sich etwas geändert hat.
 	 */
 	public void update(Integer streckennummer, Integer position) {
-		System.out.println("strecke "+streckennummer+" auf position "+position);
-		// double hilf = 27 / 100 * this.strecken.get(i).getPosition();
-		// gameScene.bewegePferd(i, hilf);
+		// System.out.println("strecke "+streckennummer+" auf position "+position);
+		double hilf = (double) position / 27;
+		System.out.println("Rennbahn Pferd: " + streckennummer + " Fortschritt: " + position);
+		gameScene.bewegePferd(streckennummer, hilf);
 	}
 }
