@@ -2,7 +2,7 @@ package application;
 
 public class Strecke {
 	private Pferd pferd;
-	private Integer laenge = 27;
+	private Integer laenge = 10;
 	private Integer position = 0;
 	private Integer streckennummer;
 	private Rennbahn rennbahn;
@@ -14,11 +14,13 @@ public class Strecke {
 	}
 	
 	public void start() {
-		this.position = 0;
 		this.pferd.start();
 	}
 	public void stop() {
 		this.pferd.stop();
+	}
+	public void reset() {
+		this.position = 0;
 	}
 
 	public void report(int laufweite) {
@@ -26,8 +28,8 @@ public class Strecke {
 
 		if(this.position >= this.laenge) {
 			this.position = this.laenge;
-			this.stop();
 			this.rennbahn.winner(this.streckennummer);
+			this.stop();
 		}
 		
 		this.rennbahn.update(this.streckennummer, this.position);

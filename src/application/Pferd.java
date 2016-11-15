@@ -4,7 +4,7 @@ public class Pferd implements Runnable {
 	private Thread t;
 	private String threadName;
 	   
-	private Integer ballruecklauf = 2000; // MilliSekunden
+	private Integer ballruecklauf = 500; // MilliSekunden
 	private Integer ballwurfzeit = 3; // maximale Zeit bis Ball geworfen wird
 	private int[] wahrscheinlichkeit = { 15, 50, 100 }; // Punkte 1,2,3 in Prozent
 	private int[] punkte = { 3,2,1 };
@@ -18,10 +18,8 @@ public class Pferd implements Runnable {
 	
 	public void start() {
 		this.laufen = true;
-		if (t == null) {
-			t = new Thread (this, threadName);
-			t.start();
-		}		
+		this.t = new Thread (this, threadName);
+		this.t.start();
 	}
 	
 	public void run() {

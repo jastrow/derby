@@ -15,7 +15,7 @@ public class Main extends Application {
 		this.rennbahn = new Rennbahn();
 		this.gameScene = new GameScene(this.rennbahn);
 		this.rennbahn.setView(this.gameScene);
-
+		
 		try {
 			this.primaryStage.setScene(this.gameScene.getScene());
 			this.primaryStage.show();
