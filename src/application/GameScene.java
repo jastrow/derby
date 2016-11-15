@@ -45,6 +45,8 @@ public class GameScene {
 		this.wurzel.setAlignment(Pos.CENTER);
 		this.scene = new Scene(this.wurzel,700,700);
 		this.erstelleScene();
+		//Szene Formatierungs CSS  zuweisen 
+		this.scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 	}
 	
 	
@@ -89,6 +91,8 @@ public class GameScene {
 			//setzen von Breite und Höhe
 			progrPferd[i].setMaxWidth(500);
 			progrPferd[i].setMinWidth(500);
+			progrPferd[i].setMaxHeight(20);
+			progrPferd[i].setMinHeight(20);
 			//Fortschrittsbalekn auf 0 setzen
 			progrPferd[i].setProgress(0);
 			//einfügen in Vertikalbox
@@ -155,9 +159,7 @@ public class GameScene {
 		verboAeussereBox.getChildren().add(horboUntereBox);
 		
 		//Wurzelpanel äußere Vertikalbox zuweisen
-		this.wurzel.getChildren().add(verboAeussereBox);
-		//Szene Formatierungs CSS  zuweisen 
-		this.scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		
+		this.wurzel.getChildren().add(verboAeussereBox);		
 		//fertige Szene zurückgeben
 		//return this.scene;
 	}
