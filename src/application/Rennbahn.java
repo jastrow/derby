@@ -74,13 +74,14 @@ public class Rennbahn {
 		// Wenn die Strecke schon enthalten ist, dann verwerfen (bug)
 		if(!this.reihenfolge.contains(strecke)) {
 			this.letzterZieleinlauf++;
-			System.out.println("Zieleinlauf "+this.letzterZieleinlauf+" Bahn "+strecke);
+			// System.out.println("Zieleinlauf "+this.letzterZieleinlauf+" Bahn "+strecke);
 			gameScene.zeigeSieger(strecke, this.letzterZieleinlauf);
 			this.reihenfolge.add(strecke);
 			
 			if(this.letzterZieleinlauf >= this.anzahlStrecken) {
 				for(int j = 0; j < this.anzahlStrecken; j++) {
-					System.out.println(j+"->"+this.reihenfolge.get(j));
+					gameScene.zeigeSchlussbild();
+					// System.out.println(j+"->"+this.reihenfolge.get(j));
 				}
 				this.run = false;
 			}

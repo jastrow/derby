@@ -26,6 +26,10 @@ public class GameScene {
 	private ImageView[] imgPferd = new ImageView[Configuration.getAnzahlBahnen()];
 	// Array für die Siegesbilder
 	private ImageView[] imgSieg = new ImageView[Configuration.getAnzahlBahnen()];
+	// Platzhalter für Schlussbild
+	private ImageView imgSchluss;
+	// Siegesbilder
+	private Image schlussbild = new Image(getClass().getResource("fertig.jpg").toExternalForm());
 	// Siegesbilder
 	private Image ersterPlatz = new Image(getClass().getResource("platzhalter.jpg").toExternalForm());
 	private Image zweiterPlatz = new Image(getClass().getResource("platzhalter.jpg").toExternalForm());
@@ -135,10 +139,17 @@ public class GameScene {
 
 		
 		});
-		//Button Horizontalbox zuweisen
-		horboUntereBox.getChildren().add(bttnStart);
 		
-		////Äußerer VertikalBox Titelbild und beide Horizontalboxen zuweisen
+		//Platzhalter für Schlussbild
+		imgSchluss = new ImageView();
+		imgSchluss.setFitHeight(100);
+		imgSchluss.setFitWidth(200);
+		
+		//Elemente Horizontalbox zuweisen
+		horboUntereBox.getChildren().add(bttnStart);
+		horboUntereBox.getChildren().add(imgSchluss);
+		
+		//Äußerer VertikalBox Titelbild und beide Horizontalboxen zuweisen
 		verboAeussereBox.getChildren().add(imgvTitelbild);
 		verboAeussereBox.getChildren().add(horboObereBox);
 		verboAeussereBox.getChildren().add(horboUntereBox);
@@ -158,6 +169,19 @@ public class GameScene {
 	public Scene getScene() {
 		return this.scene;
 	}
+	
+	
+	/**
+	 * Methode zum Anzeigen des Schlussbildes
+	 *
+	 */
+	
+	public void zeigeSchlussbild() {
+		
+		imgSchluss.setImage(schlussbild);
+	};
+	
+	
 	
 	/**
 	 * Methode zum Anzeigen des Siegers
@@ -186,7 +210,7 @@ public class GameScene {
 	 * @param fortschritt -> Fortschritt in %
 	 */
 	public void bewegePferd(Integer pferd, double fortschritt) {
-		System.out.println("GameScene Pferd: " + pferd + " Fortschritt: " + fortschritt);
+		// System.out.println("GameScene Pferd: " + pferd + " Fortschritt: " + fortschritt);
 		progrPferd[pferd].setProgress(fortschritt);
 	}
 	
