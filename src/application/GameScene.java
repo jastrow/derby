@@ -147,6 +147,10 @@ public class GameScene {
 		    	System.out.println(obj.getUserData());
 		    	//Rennbahn aus Userdaten entgegennehmen
 		    	Rennbahn rennbahn = (Rennbahn) obj.getUserData();
+		    	//Szene zurücksetzen
+		    	ruecksetzenSzene();
+		    	//Button deaktivieren
+		    	obj.setDisable(true);
 		    	//Rennbahnmethode ausführen
 		    	rennbahn.startGame();
 			}
@@ -191,9 +195,30 @@ public class GameScene {
 	public void zeigeSchlussbild() {
 
 		imgSchluss.setImage(schlussbild);
+		bttnStart.setDisable(false);
 	};
 
+	/**
+	 * Methode zum Zurücksetzen auf Anfang
+	 *
+	 */
 
+	public void ruecksetzenSzene() {
+		
+		for(int i = 0; i < imgSieg.length; i++) {
+			//zurücksetzen der Siegbilder
+			imgSieg[i].setImage(null);
+		};
+		
+		for(int i = 0; i < progrPferd.length; i++) {
+			//Fortschrittsbalken auf 0 setzen
+			progrPferd[i].setProgress(0);
+		};
+		// Schlussbild entfernen
+		imgSchluss.setImage(null);
+	};
+	
+	
 
 	/**
 	 * Methode zum Anzeigen des Siegers
