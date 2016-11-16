@@ -10,7 +10,7 @@ public class Strecke {
 	public Strecke(int num, Rennbahn rennbahn) {
 		this.streckennummer = num;
 		this.rennbahn = rennbahn;
-		this.pferd = new Pferd(this);
+		this.pferd = TierFabrik.getPferd(this);
 	}
 	
 	public void start() {

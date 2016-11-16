@@ -1,27 +1,18 @@
 package application;
 
-public class Pferd implements Runnable {
-	private Thread t;
-	private String threadName;
-	   
+public class Pferd extends Tier implements Runnable {
+
 	private Integer ballruecklauf = 500; // MilliSekunden
 	private Integer ballwurfzeit = 3; // maximale Zeit bis Ball geworfen wird
 	private int[] wahrscheinlichkeit = { 15, 50, 100 }; // Punkte 1,2,3 in Prozent
 	private int[] punkte = { 3,2,1 };
-	private Boolean laufen = false;
-	private Strecke strecke;
 	
 	public Pferd(Strecke strecke) {
 		this.strecke = strecke;
-		this.threadName = "Strecke"+this.strecke;
 	}
 	
-	public void start() {
-		this.laufen = true;
-		this.t = new Thread (this, threadName);
-		this.t.start();
-	}
 	
+	@Override
 	public void run() {
 
 		int ballwurfzeit;
@@ -38,7 +29,7 @@ public class Pferd implements Runnable {
 		    zufallszahl = (int)(Math.random() * 100) + 1; 
 		    for(int i = 0; i < this.wahrscheinlichkeit.length; i++) {
 		    	if(zufallszahl <= this.wahrscheinlichkeit[i]) {
-		    		this.strecke.report( this.punkte[i] );
+		    		this.reportStrecke( this.punkte[i] );
 		    	}
 		    }
 			try {
@@ -51,9 +42,7 @@ public class Pferd implements Runnable {
 		
 	
 	}
-	public void stop() {
-		this.laufen = false;
-	}
+
 	
 	
 }
