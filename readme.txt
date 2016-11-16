@@ -3,7 +3,7 @@ JavaFX Application
 (c) 2016 Die UMeLs
 1) Manuel Bogus (JackRyan)
 2) Salim Oussayfi (slimouGit)
-3) Mike Jastrow
+3) Mike Jastrow (Mike Jastrow)
 
 Patterns & Frameworks - ESA2 Beuth Hochschule
 
