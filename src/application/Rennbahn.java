@@ -10,19 +10,19 @@ public class Rennbahn {
 	private Integer letzterZieleinlauf = 0;
 	private GameScene gameScene;
 	private Boolean run = false;
-	
+
 	public Rennbahn() {
 		this.buildStrecken();
 	}
-	
+
 	/*
 	 * Schnittstelle zum View Scene.
 	 */
 	public void setView(GameScene gameScene) {
 		this.gameScene = gameScene;
 	}
-	
-	
+
+
 	/*
 	 * Erstellt die Strecken (construct)
 	 */
@@ -34,7 +34,7 @@ public class Rennbahn {
 		}
 	}
 	/*
-	 * Setzt die Rennbahn und die Strecken wieder zurück auf den Anfang.
+	 * Setzt die Rennbahn und die Strecken wieder zurueck auf den Anfang.
 	 */
 	public void resetGame() {
 		this.stopGame();
@@ -70,14 +70,14 @@ public class Rennbahn {
 	 * Eine Strecke meldet, dass sie einen Ziellauf hat.
 	 */
 	public void winner(int strecke) {
-		
+
 		// Wenn die Strecke schon enthalten ist, dann verwerfen (bug)
 		if(!this.reihenfolge.contains(strecke)) {
 			this.letzterZieleinlauf++;
 			// System.out.println("Zieleinlauf "+this.letzterZieleinlauf+" Bahn "+strecke);
 			gameScene.zeigeSieger(strecke, this.letzterZieleinlauf);
 			this.reihenfolge.add(strecke);
-			
+
 			if(this.letzterZieleinlauf >= this.anzahlStrecken) {
 				for(int j = 0; j < this.anzahlStrecken; j++) {
 					gameScene.zeigeSchlussbild();
@@ -88,7 +88,7 @@ public class Rennbahn {
 		}
 	}
 	/*
-	 * Eine Strecke meldet, dass sich etwas geändert hat.
+	 * Eine Strecke meldet, dass sich etwas geaendert hat.
 	 */
 	public void update(Integer streckennummer, Integer position) {
 		// System.out.println("strecke "+streckennummer+" auf position "+position);

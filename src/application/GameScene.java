@@ -20,13 +20,13 @@ public class GameScene {
 	private GridPane wurzel = new GridPane();
 	// Startbutton
 	private Button bttnStart;
-	// Array für die Fortschrittsleisten
+	// Array fuer die Fortschrittsleisten
 	private ProgressBar[] progrPferd = new ProgressBar[Configuration.getAnzahlBahnen()];
-	// Array für die Streckenbilder
+	// Array fuer die Streckenbilder
 	private ImageView[] imgPferd = new ImageView[Configuration.getAnzahlBahnen()];
-	// Array für die Siegesbilder
+	// Array fuer die Siegesbilder
 	private ImageView[] imgSieg = new ImageView[Configuration.getAnzahlBahnen()];
-	// Platzhalter für Schlussbild
+	// Platzhalter fuer Schlussbild
 	private ImageView imgSchluss;
 	// Siegesbilder
 	private Image schlussbild = new Image(getClass().getResource("theEnd.png").toExternalForm());
@@ -56,7 +56,7 @@ public class GameScene {
 	 */
 	private void erstelleScene() {
 
-		//Äußere VertikalBox zur Aufnahme aller weiteren Elemente
+		//Aeussere VertikalBox zur Aufnahme aller weiteren Elemente
 		VBox verboAeussereBox = new VBox();
 
 		// Titelbild
@@ -72,15 +72,15 @@ public class GameScene {
 
 		//Schleife zum erstellen der Streckenbilder
 		for(int i = 1; i <= imgPferd.length; i++) {
-			//ZUsammensetzen des Bilddateinamen des Streckenbildes
+			//Zusammensetzen des Bilddateinamen des Streckenbildes
 			String dateiname = "reiter_" + i + ".png";
 			//erstellen der Imageview
 			imgPferd[i-1] = new ImageView(getClass().getResource(dateiname).toExternalForm());
-			//setzen von breite und höhe des Bildes
+			//setzen von Breite und Hoehe des Bildes
 			imgPferd[i-1].setFitHeight(30);
 			imgPferd[i-1].setFitWidth(30);
 			imgPferd[i-1].getStyleClass().add("pferdStyle");
-			//einfügen in Vertikalbox
+			//einfuegen in Vertikalbox
 			verboLinkeBox.getChildren().add(imgPferd[i-1]);
 		};
 
@@ -92,7 +92,7 @@ public class GameScene {
 		for(int i = 0; i < progrPferd.length; i++) {
 			//erstellen des balken
 			progrPferd[i] = new ProgressBar();
-			//setzen von Breite und Höhe
+			//setzen von Breite und Hoehe
 			progrPferd[i].setMaxWidth(500);
 			progrPferd[i].setMinWidth(500);
 			progrPferd[i].setMaxHeight(30);
@@ -101,7 +101,7 @@ public class GameScene {
 			progrPferd[i].setProgress(0);
 			//Klasse auf Progressbar
 			progrPferd[i].getStyleClass().add("progressBar");
-			//einfügen in Vertikalbox
+			//einfuegen in Vertikalbox
 			verboMittlereBox.getChildren().add(progrPferd[i]);
 		};
 
@@ -115,14 +115,14 @@ public class GameScene {
 		for(int i = 0; i < imgSieg.length; i++) {
 			//erstellen der Imageview
 			imgSieg[i] = new ImageView();
-			//setzen von breite und höhe des Bildes
+			//setzen von Breite und Hoehe des Bildes
 			imgSieg[i].setFitHeight(30);
 			imgSieg[i].setFitWidth(30);
-			//einfügen in Vertikalbox
+			//einfuegen in Vertikalbox
 			verboRechteBox.getChildren().add(imgSieg[i]);
 		};
 
-		//Vertikalboxen in Horizontalbox einfügen
+		//Vertikalboxen in Horizontalbox einfuegen
 		horboObereBox.getChildren().add(verboLinkeBox);
 		horboObereBox.getChildren().add(verboMittlereBox);
 		horboObereBox.getChildren().add(verboRechteBox);
@@ -136,29 +136,29 @@ public class GameScene {
 		//Startbutton erstellen
 		bttnStart = new Button("Start");
 		System.out.println("setUserData "+this.rennbahn);
-		//Übergabe des Rennbahnobjekt an Buttonobjekt
+		//Uebergabe des Rennbahnobjekt an Buttonobjekt
 		bttnStart.setUserData(this.rennbahn);
 		//Button onClick Ereigniss zuweisen
 		bttnStart.setOnAction(new EventHandler<ActionEvent>(){
-		    //Funktion zur welche bei Klick ausgeführt wird
+		    //Funktion zur welche bei Klick ausgefuehrt wird
 		    public void handle(ActionEvent arg0){
-		    	//Hilfsobjekt anlegen und ausführendes Objekt zuweisen
+		    	//Hilfsobjekt anlegen und ausfuehrendes Objekt zuweisen
 		    	Button obj = (Button) arg0.getSource();
 		    	System.out.println(obj.getUserData());
 		    	//Rennbahn aus Userdaten entgegennehmen
 		    	Rennbahn rennbahn = (Rennbahn) obj.getUserData();
-		    	//Szene zurücksetzen
+		    	//Szene zuruecksetzen
 		    	ruecksetzenSzene();
 		    	//Button deaktivieren
 		    	obj.setDisable(true);
-		    	//Rennbahnmethode ausführen
+		    	//Rennbahnmethode ausfuehren
 		    	rennbahn.startGame();
 			}
 
 
 		});
 
-		//Platzhalter für Schlussbild
+		//Platzhalter fuer Schlussbild
 		imgSchluss = new ImageView();
 		imgSchluss.setFitHeight(100);
 		imgSchluss.setFitWidth(300);
@@ -167,19 +167,19 @@ public class GameScene {
 		horboUntereBox.getChildren().add(bttnStart);
 		horboUntereBox.getChildren().add(imgSchluss);
 
-		//Äußerer VertikalBox Titelbild und beide Horizontalboxen zuweisen
+		//Aeusserer VertikalBox Titelbild und beide Horizontalboxen zuweisen
 		verboAeussereBox.getChildren().add(imgvTitelbild);
 		verboAeussereBox.getChildren().add(horboObereBox);
 		verboAeussereBox.getChildren().add(horboUntereBox);
 
-		//Wurzelpanel äußere Vertikalbox zuweisen
+		//Wurzelpanel Aeussere Vertikalbox zuweisen
 		this.wurzel.getChildren().add(verboAeussereBox);
-		//fertige Szene zurückgeben
+		//fertige Szene zurueckgeben
 		//return this.scene;
 	}
 
 	/**
-	 * Hilfsfunktion zur Rückgabe der Szene
+	 * Hilfsfunktion zur Rueckgabe der Szene
 	 * @return komplette Szene mit allen Elementen
 	 */
 	public Scene getScene() {
@@ -199,17 +199,17 @@ public class GameScene {
 	};
 
 	/**
-	 * Methode zum Zurücksetzen auf Anfang
+	 * Methode zum Zuruecksetzen auf Anfang
 	 *
 	 */
 
 	public void ruecksetzenSzene() {
-		
+
 		for(int i = 0; i < imgSieg.length; i++) {
-			//zurücksetzen der Siegbilder
+			//zuruecksetzen der Siegbilder
 			imgSieg[i].setImage(null);
 		};
-		
+
 		for(int i = 0; i < progrPferd.length; i++) {
 			//Fortschrittsbalken auf 0 setzen
 			progrPferd[i].setProgress(0);
@@ -217,8 +217,8 @@ public class GameScene {
 		// Schlussbild entfernen
 		imgSchluss.setImage(null);
 	};
-	
-	
+
+
 
 	/**
 	 * Methode zum Anzeigen des Siegers
