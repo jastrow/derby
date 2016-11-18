@@ -34,6 +34,9 @@
         private Image ersterPlatz = new Image(getClass().getResource("platz_1.png").toExternalForm());
         private Image zweiterPlatz = new Image(getClass().getResource("platz_2.png").toExternalForm());
         private Image dritterPlatz = new Image(getClass().getResource("platz_3.png").toExternalForm());
+        private Image restlichePlaetze = new Image(getClass().getResource("platz_halter.png").toExternalForm());
+        
+        private int anzahlBahnen = Configuration.getAnzahlBahnen();
 
         //Box-Elemente
         VBox verboAeussereBox = new VBox();
@@ -66,12 +69,12 @@
         	this.anzeigenProgressBar();
         	this.anzeigenSiegerBilder();
             this.buttonHandling();
-            //this.zeigeSchlussbild();
 
             //Platzhalter fuer Schlussbild
             imgSchluss = new ImageView();
-            imgSchluss.setFitHeight(100);
-            imgSchluss.setFitWidth(300);
+            imgSchluss.getStyleClass().add("imgSchlussStyle");
+            //imgSchluss.setFitHeight(100);
+            //imgSchluss.setFitWidth(300);
             horboUntereBox.getChildren().add(imgSchluss);
             
             verboAeussereBox.getChildren().add(horboObereBox);
@@ -103,8 +106,6 @@
             for(int i = 1; i <= imgPferd.length; i++) {
                 String dateiname = "reiter_" + i + ".png";
                 imgPferd[i-1] = new ImageView(getClass().getResource(dateiname).toExternalForm());
-                imgPferd[i-1].setFitHeight(30);
-                imgPferd[i-1].setFitWidth(30);
                 imgPferd[i-1].getStyleClass().add("pferdStyle");
                 verboLinkeBox.getChildren().add(imgPferd[i-1]);
                 };
@@ -117,10 +118,6 @@
             verboMittlereBox.getStyleClass().add("progressBarBox");
             for(int i = 0; i < progrPferd.length; i++) {
                 progrPferd[i] = new ProgressBar();
-                progrPferd[i].setMaxWidth(500);
-                progrPferd[i].setMinWidth(500);
-                progrPferd[i].setMaxHeight(30);
-                progrPferd[i].setMinHeight(30);
                 progrPferd[i].setProgress(0);
                 progrPferd[i].getStyleClass().add("progressBar");
                 verboMittlereBox.getChildren().add(progrPferd[i]);
@@ -131,10 +128,11 @@
 
         //Methode zeigt Medaillen fuer Platz 1 – 3 an
         public void anzeigenSiegerBilder(){
-            for(int i = 0; i < imgSieg.length; i++) {
+            for(int i = 0; i < anzahlBahnen; i++) {
                 imgSieg[i] = new ImageView();
                 imgSieg[i].setFitHeight(30);
                 imgSieg[i].setFitWidth(30);
+                imgSieg[i].getStyleClass().add("imgSiegStyle");
                 verboRechteBox.getChildren().add(imgSieg[i]);
                 };
             horboObereBox.getChildren().add(verboRechteBox);
@@ -172,7 +170,7 @@
         //Methode zum Zuruecksetzen auf Anfang
         public void ruecksetzenSzene() {
 
-            for(int i = 0; i < imgSieg.length; i++) {
+            for(int i = 0; i < anzahlBahnen; i++) {
                 //zuruecksetzen der Siegbilder
                 imgSieg[i].setImage(null);
             };
@@ -200,6 +198,7 @@
                     break;
             case 3: imgSieg[pferd].setImage(dritterPlatz);
             	break;
+            default: imgSieg[pferd].setImage(restlichePlaetze);
             }
 
         };

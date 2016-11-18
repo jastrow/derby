@@ -25,6 +25,19 @@
 .progressBar {
 	-fx-border-color: rgb(0,0,0);
 	-fx-border-radius: 5;
+	-fx-max-height: 30;
+	-fx-min-height: 30;
+	-fx-max-width: 500;
+	-fx-min-width: 500;
+}
+
+.imgSchlussStyle{
+
+}
+
+.imgSiegStyle {
+	-fx-max-height: 30;
+	-fx-min-height: 30;
 }
 
 .progressBarBox{
