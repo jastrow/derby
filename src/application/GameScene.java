@@ -73,8 +73,8 @@
             //Platzhalter fuer Schlussbild
             imgSchluss = new ImageView();
             imgSchluss.getStyleClass().add("imgSchlussStyle");
-            //imgSchluss.setFitHeight(100);
-            //imgSchluss.setFitWidth(300);
+            imgSchluss.setFitHeight(100);
+            imgSchluss.setFitWidth(300);
             horboUntereBox.getChildren().add(imgSchluss);
             
             verboAeussereBox.getChildren().add(horboObereBox);
